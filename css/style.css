@@ -21,7 +21,7 @@
 }
 
 :root {
-  --dark-mode-Elements: hsl(209, 23%, 22%);
+  --dark-mode-elements: hsl(209, 23%, 22%);
   --dark-mode-background: hsl(207, 26%, 17%);
   --light-Mode-Text: hsl(200, 15%, 8%);
   --light-mode-input: hsl(0, 0%, 50%);
@@ -57,23 +57,125 @@ button {
   outline: none;
   cursor: pointer;
 }
-#app {
-
-}
+/* #app {
+} */
 .container {
   max-width: 1440px;
   min-height: 1024px;
   margin: auto;
-  padding: 30px 80px;
 }
 .header {
+  min-height: 80px;
+  padding: 30px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--dark-mode-elements);
 }
 h1 {
-    color: var(--dark-mode-text-light-mode-elements);
+  color: var(--dark-mode-text-light-mode-elements);
 }
 .color-scheme {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  background-color: inherit;
+  color: var(--dark-mode-text-light-mode-elements);
 }
-.dark {
-}
+/* .dark {
+} */
 .main {
+  padding-inline: 80px;
+  padding-block-start: 45px;
 }
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-block-end: 45px;
+}
+input[type="text"] {
+  display: block;
+  border: none;
+  width: 480px;
+  height: 55px;
+  background-color: var(--dark-mode-elements);
+  border-radius: 8px;
+  padding-inline-start: 70px;
+}
+.form__input {
+  position: relative;
+}
+::placeholder {
+  color: var(--dark-mode-text-light-mode-elements);
+  font-size: 14px;
+}
+.form__input svg {
+  position: absolute;
+  top: 15px;
+  left: 30px;
+  width: 20px;
+  height: 20px;
+}
+select {
+  appearance: none;
+  width: 200px;
+  height: 55px;
+  background-color: var(--dark-mode-elements);
+  color: var(--dark-mode-text-light-mode-elements);
+  padding-inline: 20px;
+  border: none;
+  outline: none;
+  border: 2px solid var(--dark-mode-elements);
+  background-image: url('../images/icon-arrow-light.svg');
+  background-repeat: no-repeat;
+  background-position: 168px;
+  cursor: pointer;
+}
+.selected {
+  display: none;
+}
+select option {
+  border: none;
+  outline: none;
+  font-size: 14px;
+  text-indent: 20px;
+}
+.main__countries {
+  display: grid;
+  grid-template-columns: repeat(4, 265px);
+  gap: 75px;
+}
+.main__countries-country {
+  padding: 0;
+  background-color: var(--dark-mode-elements);
+  border-radius: 10px;
+}
+.country-flag {
+  margin-block-end: 27px;
+}
+ img.country-flag {
+  width: 100%;
+  height: 165px;
+  border-radius: 5px;
+}
+.contry-info {
+  padding-inline-start: 25px;
+  padding-block-end: 45px;
+  color: var(--dark-mode-text-light-mode-elements);
+  text-align: left;
+}
+.contry-info p span {
+  color: var(--light-mode-input);
+}
+.country-name {
+  margin-block-end: 20px;
+}
+.country-population {
+  margin-block-end: 10px;
+}
+.country-region {
+  margin-block-end: 10px;
+}
+/* .country-capital {
+} */

@@ -22,11 +22,72 @@
           <p class="dark">Dark Mode</p>
         </button>
       </header>
-      <main class="main"></main>
+      <main class="main">
+        <form action="#" class="form" id="form">
+          <div class="form__input">
+            <input type="text" placeholder="Search for a country..." />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="icon icon-tabler icons-tabler-outline icon-tabler-search"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+              <path d="M21 21l-6 -6" />
+            </svg>
+          </div>
+          <select name="regions" id="region-select">
+            <option value="" selected class="selected">Filter by Region</option>
+            <option value="africa">Africa</option>
+            <option value="america">America</option>
+            <option value="asia">Asia</option>
+            <option value="europe">Europe</option>
+            <option value="oceania">Oceania</option>
+          </select>
+        </form>
+        <section class="main__countries">
+          <button
+            class="main__countries-country"
+            v-for="country in countries"
+            :key="country"
+          >
+            <img
+              :src="country.flags.png"
+              :alt="country.name"
+              class="country-flag"
+            />
+            <div class="contry-info">
+              <h4 class="country-name">{{country.name}}</h4>
+              <!-- <p class="country-population">
+                Poppulation:&nbsp;<span>{{country.numeral(population).format("0,0.00")}}</span>
+              </p> -->
+              <p class="country-population">
+                Poppulation:&nbsp;<span>{{country.population}}</span>
+              </p>
+              <p class="country-region">Region:&nbsp;<span>{{country.region}}</span></p>
+              <p class="country-capital">Capital:&nbsp;<span>{{country.capital}}</span></p>
+            </div>
+          </button>
+        </section>
+      </main>
     </div>
 
+    <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="./js/vue.global.js"></script>
     <script src="./js/app.js"></script>
   </body>
 </html>
+
+
+<!-- 
+
+Численность населения запятая и точка
+-->
