@@ -1,0 +1,79 @@
+.nunito-sans-light {
+  font-family: "Nunito Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings: "wdth" 100, "YTLC" 500;
+}
+.nunito-sans-semibold {
+  font-family: "Nunito Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-variation-settings: "wdth" 100, "YTLC" 500;
+}
+.nunito-sans-extrabold {
+  font-family: "Nunito Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+  font-variation-settings: "wdth" 100, "YTLC" 500;
+}
+
+:root {
+  --dark-mode-Elements: hsl(209, 23%, 22%);
+  --dark-mode-background: hsl(207, 26%, 17%);
+  --light-Mode-Text: hsl(200, 15%, 8%);
+  --light-mode-input: hsl(0, 0%, 50%);
+  --light-mode-background: hsl(0, 0%, 99%);
+  --dark-mode-text-light-mode-elements: hsl(0, 100%, 100%);
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Nunito Sans";
+  font-size: 100%;
+  font-weight: 400;
+  background-color: var(--dark-mode-background);
+  color: var(--dark-mode-text-light-mode-elements);
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+#app {
+
+}
+.container {
+  max-width: 1440px;
+  min-height: 1024px;
+  margin: auto;
+  padding: 30px 80px;
+}
+.header {
+}
+h1 {
+    color: var(--dark-mode-text-light-mode-elements);
+}
+.color-scheme {
+}
+.dark {
+}
+.main {
+}
