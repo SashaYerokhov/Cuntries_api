@@ -17,15 +17,29 @@
     <div id="app" class="container">
       <header class="header">
         <h1>Where in the world</h1>
-        <button class="color-scheme">
-          <img src="./images/icon-moon.svg" alt="icon moon" />
+        <button
+          class="color-scheme"
+          @click="toggleTheme"
+          :class="{'active' : isActive}"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26">
+            <path
+              fill="#FFF"
+              fill-rule="evenodd"
+              d="M13 0c.81 0 1.603.074 2.373.216C10.593 1.199 7 5.43 7 10.5 7 16.299 11.701 21 17.5 21c2.996 0 5.7-1.255 7.613-3.268C23.22 22.572 18.51 26 13 26 5.82 26 0 20.18 0 13S5.82 0 13 0z"
+            />
+          </svg>
           <p class="dark">Dark Mode</p>
         </button>
       </header>
       <main class="main">
         <form action="#" class="form" id="form">
           <div class="form__input">
-            <input type="text" placeholder="Search for a country..." />
+            <input
+              type="text"
+              v-model="search"
+              placeholder="Search for a country..."
+            />
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -43,20 +57,20 @@
               <path d="M21 21l-6 -6" />
             </svg>
           </div>
-          <select name="regions" id="region-select">
-            <option value="" selected class="selected">Filter by Region</option>
-            <option value="africa">Africa</option>
-            <option value="america">America</option>
-            <option value="asia">Asia</option>
-            <option value="europe">Europe</option>
-            <option value="oceania">Oceania</option>
+          <select v-model="selectedRegion" id="region-select">
+            <option value="" selected>Filter by Region</option>
+            <option value="Africa">Africa</option>
+            <option value="Americas">Americas</option>
+            <option value="Asia">Asia</option>
+            <option value="Europe">Europe</option>
+            <option value="Oceania">Oceania</option>
           </select>
         </form>
         <section class="main__countries">
           <button
             class="main__countries-country"
-            v-for="country in countries"
-            :key="country"
+            v-for="country in filteredCountries"
+            :key="country.name"
           >
             <img
               :src="country.flags.png"
@@ -66,28 +80,43 @@
             <div class="contry-info">
               <h4 class="country-name">{{country.name}}</h4>
               <!-- <p class="country-population">
-                Poppulation:&nbsp;<span>{{country.numeral(population).format("0,0.00")}}</span>
+                Population:&nbsp;<span>{{ formattedPopulation }}</span>
               </p> -->
               <p class="country-population">
                 Poppulation:&nbsp;<span>{{country.population}}</span>
               </p>
-              <p class="country-region">Region:&nbsp;<span>{{country.region}}</span></p>
-              <p class="country-capital">Capital:&nbsp;<span>{{country.capital}}</span></p>
+              <p class="country-region">
+                Region:&nbsp;<span>{{country.region}}</span>
+              </p>
+              <p class="country-capital">
+                Capital:&nbsp;<span>{{country.capital}}</span>
+              </p>
             </div>
           </button>
+          <div
+            v-if="filteredCountries.length === 0 && !loading"
+            class="no-results"
+          >
+            No countries found
+          </div>
+
+          <div v-if="loading" class="loading">Loading...</div>
         </section>
       </main>
     </div>
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-numeral-filter/dist/vue-numeral-filter.min.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="./js/vue.global.js"></script>
     <script src="./js/app.js"></script>
   </body>
 </html>
 
-
 <!-- 
+
+птичка возле выбора региона
+модальное окно для каждой страны - нужно чтобы при клике выходили именно конкректная
+ страна - но при этом хедер оставался неизменным - не перекрывался модальным окном
 
 Численность населения запятая и точка
 -->

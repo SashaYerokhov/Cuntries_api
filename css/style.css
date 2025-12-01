@@ -29,6 +29,19 @@
   --dark-mode-text-light-mode-elements: hsl(0, 100%, 100%);
 }
 
+[color-scheme="dark"] {
+  --bg: hsl(207, 26%, 17%);
+  --text: hsl(0, 100%, 100%);
+  --text-parag: hsl(0, 0%, 50%);
+  --bg-header: hsl(209, 23%, 22%);
+  --bg-moon: #fff;
+}
+[color-scheme="light"] {
+  --bg: hsl(0, 0%, 90%);
+  --text: hsl(200, 15%, 8%);
+  --bg-header: hsl(0, 0%, 100%);
+  --text-parag: hsl(0, 0%, 50%);
+}
 html {
   box-sizing: border-box;
 }
@@ -45,8 +58,8 @@ body {
   font-family: "Nunito Sans";
   font-size: 100%;
   font-weight: 400;
-  background-color: var(--dark-mode-background);
-  color: var(--dark-mode-text-light-mode-elements);
+  background-color: var(--bg);
+  color: var(--text);
 }
 img {
   max-width: 100%;
@@ -70,17 +83,20 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--dark-mode-elements);
+  background-color: var(--bg-header);
 }
 h1 {
-  color: var(--dark-mode-text-light-mode-elements);
+  color: var(--text);
 }
 .color-scheme {
   display: flex;
   align-items: center;
   column-gap: 10px;
   background-color: inherit;
-  color: var(--dark-mode-text-light-mode-elements);
+  color: var(--text);
+}
+.color-scheme svg path {
+  fill: var(--bg-moon);
 }
 /* .dark {
 } */
@@ -99,7 +115,7 @@ input[type="text"] {
   border: none;
   width: 480px;
   height: 55px;
-  background-color: var(--dark-mode-elements);
+  background-color: var(--bg-header);
   border-radius: 8px;
   padding-inline-start: 70px;
 }
@@ -107,7 +123,7 @@ input[type="text"] {
   position: relative;
 }
 ::placeholder {
-  color: var(--dark-mode-text-light-mode-elements);
+  color: var(--text-parag);
   font-size: 14px;
 }
 .form__input svg {
@@ -121,12 +137,12 @@ select {
   appearance: none;
   width: 200px;
   height: 55px;
-  background-color: var(--dark-mode-elements);
-  color: var(--dark-mode-text-light-mode-elements);
+  background-color: var(--bg-header);
+  color: var(--text);
   padding-inline: 20px;
   border: none;
   outline: none;
-  border: 2px solid var(--dark-mode-elements);
+  border: 2px solid var(--bg-header);
   background-image: url('../images/icon-arrow-light.svg');
   background-repeat: no-repeat;
   background-position: 168px;
@@ -148,7 +164,7 @@ select option {
 }
 .main__countries-country {
   padding: 0;
-  background-color: var(--dark-mode-elements);
+  background-color: var(--bg-header);
   border-radius: 10px;
 }
 .country-flag {
@@ -162,11 +178,11 @@ select option {
 .contry-info {
   padding-inline-start: 25px;
   padding-block-end: 45px;
-  color: var(--dark-mode-text-light-mode-elements);
+  color: var(--text);
   text-align: left;
 }
 .contry-info p span {
-  color: var(--light-mode-input);
+  color: var(--text-parag);
 }
 .country-name {
   margin-block-end: 20px;
